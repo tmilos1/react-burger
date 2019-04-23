@@ -6,9 +6,18 @@ import Burger from './Burger';
 
 configure({adapter: new Adapter()});
 
+const oneIngredient = {
+    ingridients: {
+        salad: 1,
+        bacon: 0,
+        cheese: 0,
+        meat: 0
+    }
+}
+
 describe('<Layout />', () => {
     it('should render one element', () => {
-        const wrapper = shallow(<Burger />);
+        const wrapper = shallow(<Burger ingridients={oneIngredient}/>);
         expect(wrapper.find('div')).toHaveLength(1);
     });
 });
